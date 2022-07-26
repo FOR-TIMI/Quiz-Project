@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timi's Quiz</title>
+
+    <!-- link for the animation -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+
+    <main>
+        <form action="" class="container">
+            <div class="title-container">
+               <img class="top-left-blob" src="./assets/img/blob1.svg" alt="">
+               <h1 class="title">Quiz</h1>
+           </div>
+
+           <div id="error"></div>
+           <div class="username-container">
+               <input class="username" type="text" placeholder="Your name" autofocus>
+               <img class="top-right-blob" src="./assets/img/inputBlob.svg" alt="">
+           </div>
+      
+               
+               <!-- <span class="timer">5</span> -->
+           <div class="button-container">
+               <button value="submit" class="start-quiz" type="submit">Start Quiz</button>
+               <img class="bottom-left-blob" src="./assets/img/blob1.svg" alt="">
+               <img class="bottom-right-blob" src="./assets/img/inputBlob.svg" alt="">
+           </div>
+               <a href="">view leaderboard</a>
+
+               <img class="center-small-blob" src="./assets/img/smallBlob.svg" alt="">
+       </form>
+
+
+    </main>
+    
+
+
+       <!-- The questions section -->
+        <section class=" question-section hidden">
+         <div id="questions">
+            <div class="question-box-background ">
+                <img class="top-left-blob" src="./assets/img/blob1.svg" alt="">
+                <img class="question-background-right-blob" src="./assets/img/inputBlob.svg" alt="">
+                <img class="question-background-small-blob" src="./assets/img/smallBlob.svg" alt="">
+              
+                <div class="question-box">
+                    <h3 class="question-text">What does HTML stand for?</h3>
+                </div>
+                <div class="circular-progress">
+                    <span class="progress-value">1</span>
+                </div>
+
+            </div>
+
+            <!-- Multiple choice options -->
+            <div class="option-list">
+                <div class="option">
+                    <span>Hyper Tool Multi Language</span>
+                </div>
+                <div class="option">
+                    <span>Hyper Text preprocessor</span>
+                </div>
+                <div class="option">
+                    <span>Hyper Text Markup language</span>
+                    <div class="icon tick"><i class="fa-solid fa-circle-check fa-lg"></i></div>
+                </div>
+                <div class="option "><!-- animate__animated animate__headShake -->
+                    <span>Hyper Tool Multiple Languager</span>
+                    <div class="icon cross "><i class="fa-solid fa-circle-xmark fa-lg"></i></div>
+                </div>
+            </div>
+          
+            <footer>
+                <div class="total-questions">
+                    <span>Question<p>2</p>of<p>5</p></span>
+                </div>
+
+            </footer>
+        </div>
+        </section>
+        
+
+
+        <!-- Points section -->
+        <section id="points" class="hidden">
+            <div class="points-container">
+                <div class="points-box-background ">
+                    <img class="top-left-blob" src="./assets/img/blob1.svg" alt="">
+                    <img class="question-background-right-blob" src="./assets/img/inputBlob.svg" alt="">
+                    <img class="question-background-small-blob" src="./assets/img/smallBlob.svg" alt="">
+ 
+                </div>
+
+
+                <div class="point-box">
+                    <div class="point-box-circle-container">
+                    <div class="point-circle">
+                        <div class="point-text"><p>Your Score </p><span class="point">150pt</span></div>
+                    </div>
+                </div>
+                    <div class="point-box-content">
+
+    
+                        <div class="point-info">
+                            <ul class="point-info-list">
+                                <li><p>100%</p>completed</li>
+                                <li><p>10</p>Total questions</li>
+                                <li class="correct"><p>7</p>correct</li>
+                                <li class="wrong"><p>3</p> wrong</li>
+                            </ul>
+                        </div>
+                    </div>
+     
+                </div>
+                <div class="more-info">
+                    <ul >
+                        <li class="more-info-list">
+                           
+                            <a href="">
+                                <div class="more-info-icon">
+                                <img src="./assets/img/play-again.svg" alt="">
+                                </div>
+                                play again
+                            </a>
+                        </li>
+                        <li class="more-info-list">
+                            <a href="">
+                                <div class="more-info-icon">
+                                    <img src="./assets/img/leaderboard.svg" alt=""> 
+                                </div>
+                                View Leaderboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+             
+        </section>
+
+
+            
+
+
+
+
+ 
+ 
+
+        <script src="https://kit.fontawesome.com/1de200b804.js" crossorigin="anonymous"></script>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
