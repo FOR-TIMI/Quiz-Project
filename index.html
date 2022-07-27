@@ -17,7 +17,7 @@
 <body>
 
     <main>
-        <form action="" class="container">
+        <form action="" id="quiz-form" class="container active">
             <div class="title-container">
                <img class="top-left-blob" src="./assets/img/blob1.svg" alt="">
                <h1 class="title">Quiz</h1>
@@ -47,7 +47,7 @@
 
 
        <!-- The questions section -->
-        <section class=" question-section hidden">
+        <section id="question-section" class="inactive">
          <div id="questions">
             <div class="question-box-background ">
                 <img class="top-left-blob" src="./assets/img/blob1.svg" alt="">
@@ -55,30 +55,20 @@
                 <img class="question-background-small-blob" src="./assets/img/smallBlob.svg" alt="">
               
                 <div class="question-box">
-                    <h3 class="question-text">What does HTML stand for?</h3>
+                     <div class="scores">
+                     </div>
+                    <h3 class="question-text"></h3>
                 </div>
                 <div class="circular-progress">
-                    <span class="progress-value">1</span>
+                    <span class="progress-value">75</span>
                 </div>
 
             </div>
 
+
             <!-- Multiple choice options -->
             <div class="option-list">
-                <div class="option">
-                    <span>Hyper Tool Multi Language</span>
-                </div>
-                <div class="option">
-                    <span>Hyper Text preprocessor</span>
-                </div>
-                <div class="option">
-                    <span>Hyper Text Markup language</span>
-                    <div class="icon tick"><i class="fa-solid fa-circle-check fa-lg"></i></div>
-                </div>
-                <div class="option "><!-- animate__animated animate__headShake -->
-                    <span>Hyper Tool Multiple Languager</span>
-                    <div class="icon cross "><i class="fa-solid fa-circle-xmark fa-lg"></i></div>
-                </div>
+
             </div>
           
             <footer>
@@ -93,7 +83,7 @@
 
 
         <!-- Points section -->
-        <section id="points" class="hidden">
+        <section id="points" class="inactive">
             <div class="points-container">
                 <div class="points-box-background ">
                     <img class="top-left-blob" src="./assets/img/blob1.svg" alt="">

@@ -10,6 +10,22 @@ body{
     background-color: #E7DAFF;
 }
 
+#quiz-form,#question-section,#points{
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    transition: all 0.3s ease;
+}
+
+.inactive{
+    opacity: 0;
+    z-index: 0;
+}
+.active{
+    opacity: 1;
+    z-index: 5;
+}
+
 .container{
     width: 35%;
     height: 620px;
@@ -31,8 +47,8 @@ body{
 
 #error{
     position: relative;
-    top: 5%;
-    left: -19%;
+    top: 9%;
+    left: -20%;
     color: #ff3860;
     font-size: 90%;
 }
@@ -212,10 +228,41 @@ button{
 .circular-progress::before{
   content: "";
   position: absolute;
-  height: 75%;
-  width: 75%;
+  height: 80%;
+  width: 80%;
   border-radius: 50%;
   background-color: #fff;
+}
+
+.scores{
+    position: relative;
+    top: -65%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.scores span{
+    display: inline-block;
+    width: 40px;
+    height: 12px;
+    border-radius: 10px ;
+}
+
+.scores .correct span{
+    background-color: #09c372;
+    margin-left: 6px;
+}
+.scores .wrong span{
+    background-color: #ff3860;
+    margin-right: 6px;
+}
+
+.correct{
+    color: #09c372;
+}
+
+.wrong{
+    color: #ff3860;
 }
 
 .progress-value{
@@ -274,8 +321,17 @@ button{
    justify-content: space-between;
 }
 
+.total-questions{
+    border: 1px solid #6545A4;
+    width: 120px;
+    margin: 0 0 40px 0px;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .total-questions span{
-    margin: 30px;
     display: flex;
     justify-content: space-between;
 }
@@ -284,6 +340,7 @@ button{
     font-weight: 500;
     color: #A862EA;
     padding: 0 5px;
+  
 }
 
 
@@ -401,6 +458,8 @@ color: #A862EA;
 .point-text p{
     font-size: 12px;
 }
+
+
 
 
 /*  for restarting the game and viewing highscores */

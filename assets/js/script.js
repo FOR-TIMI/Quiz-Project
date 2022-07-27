@@ -1,23 +1,26 @@
 
 //To get all the required elements
-const startQuiz = document.querySelector('.start-quiz');
-const startQuizContainer = document.querySelector('.container')
-const timerInput = document.querySelector('.timer')
-const usernameInput = document.querySelector('.username')
+const startQuiz = document.querySelector('.start-quiz'),
+      startQuizContainer = document.querySelector('.container'),
+      timerInput = document.querySelector('.timer'),
+      usernameInput = document.querySelector('.username'),
+      questionsContainer = document.getElementById('question-section'),
+      pointsContainer = document.getElementById('points');
 
 
 
-const questionSection = document.querySelector('#question-section')
 
-
-
+// Button to start the quiz
 startQuizContainer.addEventListener('submit',function(e){
-
+   
     e.preventDefault();
     validateInput();
-
+    
+    
 }) 
 
+
+//Error for validating username
 const setError = function(element, message){
     const errorElement= document.querySelector('#error');
 
@@ -31,57 +34,37 @@ const setError = function(element, message){
 
 }
 
-
-
-
-
+//Only checks to find out if a new user was created
 const validateInput = function(){
     const username = usernameInput.value;
 
     if(username === ''){
        setError(username, 'Your name is required')
     }
-
+    else{
+       createQuiz();
+    }
 }
-
-
-let time = 5
 
 
 function createQuiz(){
-      startTimer();
-      if(time !== 0){
-      }
+    setQuestion();
+    startTimer();
 }
 
 
-    const questions = [
-        {
-            question: 'What is 2 + 2',
-            options:['3','7','22','4'],
-            answer:3
-        },
-        {
-            question: 'What is 2 + 2',
-            options:['3','7','22','4'],
-            answer:3
-        },
-        {
-            question: 'What is 2 + 2',
-            options:['3','7','22','4'],
-            answer:3
-        }
-    ]
+
 
 
     //To select the timers
  const circularProgress = document.querySelector('.circular-progress'),
-      progressValue = document.querySelector('.progress-value')
+       progressValue = document.querySelector('.progress-value')
 
 
-let progressStartValue = 75,
-    progressEndValue = 0,
-    speed = 1000;
+  // variables to start and end the timer
+let progressStartValue = 35,
+    progressEndValue = 0
+
 
 
 function startTimer(){
@@ -96,39 +79,219 @@ function startTimer(){
         circularProgress.style.background = `conic-gradient(#A862EA ${progressStartValue *3.6}deg,  #ededed 0deg)`
       
         //Checking when to end the timer
-        if(progressStartValue === progressEndValue){
+        if(progressStartValue <= progressEndValue){
           clearInterval(progress);
+          showQuizDetails();
+          saveUser();
+          
+          
         }
-      },speed)
+      },1000)
 }
 
 var id = 0;
 
-    
-function saveUsername(){
+
+// An array of questions
+let questions = [
+    {
+    number: 1,
+    question: "What does HTML stand for?",
+    options: [
+      "Hyper Text Preprocessor",
+      "Hyper Text Markup Language",
+      "Hyper Text Multiple Language",
+      "Hyper Tool Multi Language"
+    ],
+    answer: 1
+  },
+    {
+    number: 2,
+    question: "What does CSS stand for?",
+    options: [
+      "Common Style Sheet",
+      "Colorful Style Sheet",
+      "Computer Style Sheet",
+      "Cascading Style Sheet"
+    ],
+    answer: 3
+  },
+    {
+    number: 3,
+    question: "What does PHP stand for?",
+    options: [
+      "Hypertext Preprocessor",
+      "Hypertext Programming",
+      "Hypertext Preprogramming",
+      "Hometext Preprocessor"
+    ],
+    answer: 0
+  },
+    {
+    number: 4,
+    question: "What does SQL stand for?",
+    options: [
+      "Stylish Question Language",
+      "Stylesheet Query Language",
+      "Statement Question Language",
+      "Structured Query Language"
+    ],
+    answer: 3,
+  },
+    {
+    number: 5,
+    question: "What does XML stand for?",
+    options: [
+      "eXtensible Markup Language",
+      "eXecutable Multiple Language",
+      "eXTra Multi-Program Language",
+      "eXamine Multiple Language"
+    ],
+    answer:0,
+  },
+
+];
+
+function setQuestion(){
+  startQuizContainer.classList.remove('active');
+  startQuizContainer.classList.add('inactive');
+
+
+  questionsContainer.classList.add('active');
+  displayQuestion(numberOfQuestions);
+
+}
+
+let numberOfQuestions = 0;
+const options = document.querySelector('.option-list');
+const totalQuestionsText = document.querySelector('.total-questions')
+totalQuestionsText.innerHTML = `<span>Question<p>${numberOfQuestions + 1}</p>of<p>${questions.length}</p></span>`
+
+//To check if all questions have been answered
+if(numberOfQuestions === questions.length){
+  progressStartValue = 0;
+}
+//To clear out all the previous options
+function clearPreviousOptions(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+
+
+let wrong = 0;
+let correct = 0;
+let i = numberOfQuestions;
+const scores = document.querySelector('.scores');
+
+options.addEventListener('click', function(e){
+
+  if(numberOfQuestions < questions.length){
+    clearPreviousOptions(options);
+    numberOfQuestions+= 1;
+    i= numberOfQuestions;
+    displayQuestion(numberOfQuestions);
+    totalQuestionsText.innerHTML = `<span>Question<p>${numberOfQuestions + 1}</p>of<p>${questions.length}</p></span>`
+  }
+  else{
+  showQuizDetails();
+  saveUser();
+  }
+
+   
+})
+
+
+function showQuizDetails(){
+
+  //To remove the questions from the page
+  questionsContainer.classList.remove('active');
+  questionsContainer.classList.add('inactive');
+
+
+  //To remove the inactive class from the points page
+  pointsContainer.classList.remove('inactive');
+  pointsContainer.classList.add('active');
+
+ 
+}
+
+
+
+
+
+
+// To display a question and it's options
+function displayQuestion(i){
+  scores.innerHTML = `<p class="correct">${correct}<span ></span></p>
+  <p class="wrong"><span ></span>${wrong}</p>`
+
+
+   const questionText = document.querySelector('.question-text');
+   questionText.textContent = questions[i].question;
+ 
  
 
-        if(localStorage.getItem('user') == null){
-            localStorage.setItem('user','[]')
-        }
-    
-        //Set it our input value
-        const newUser = {
-                username: usernameInput.value,
-                id: id += 1,
-                correct: 0,
-                wrong: 0,
-            } 
-        
-    
-    
-        var oldUser = JSON.parse(localStorage.getItem('user'));
-        oldUser.push(newUser);
-    
-        //Save the old + new data;
-        localStorage.setItem('user', JSON.stringify(oldUser));
-    } 
-    
+
+   for(let j= 0 ; j < questions[i].options.length; j++){
+      //Create element
+      let option = questions[i].options[j]
+      const optionDiv = document.createElement('div');
+      optionDiv.classList.add('option');
+      optionDiv.innerHTML = `<span>${option}</span>`;
+      optionDiv.setAttribute('onclick', 'optionSelected(this)');
+
+      options.appendChild(optionDiv)
+      
+   }
+
+
+
+}
+
+// To keep track of selected answers to know the right and wrong
+function optionSelected(answer){
+  let userAnswer = answer.textContent.trim();
+  let correctAns = questions[i].options[questions[i].answer];
+
+
+  if(userAnswer == correctAns){
+    console.log('The answer is correct');
+    correct+= 1;
+
+  }
+  else{
+    console.log('the answer is wrong');
+    wrong += 1
+
+
+    //To subtract 10 secs from the timer
+    progressStartValue -= 10
+  }
+}
+
+//To save a user's details and scores to the local storage
+function saveUser(){
+  const username = usernameInput.value.trim()
+  if(localStorage.getItem('user') == null){
+      localStorage.setItem('user','[]')
+  }
+
+  //Set it our input value
+  const newUser = {
+          username: username,
+          correct: correct,
+          wrong: wrong,
+      } 
+  
+
+
+  var oldUser = JSON.parse(localStorage.getItem('user'));
+  oldUser.push(newUser);
+
+  //Save the old + new data;
+  localStorage.setItem('user', JSON.stringify(oldUser));
+} 
 
 
 
@@ -136,6 +299,4 @@ function saveUsername(){
 
 
 
-
-
-
+ 
