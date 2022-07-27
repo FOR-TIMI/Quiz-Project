@@ -8,8 +8,6 @@ const startQuiz = document.querySelector('.start-quiz'),
       pointsContainer = document.getElementById('points');
 
 
-
-
 // Button to start the quiz
 startQuizContainer.addEventListener('submit',function(e){
    
@@ -53,10 +51,7 @@ function createQuiz(){
 }
 
 
-
-
-
-    //To select the timers
+//To select the timers
  const circularProgress = document.querySelector('.circular-progress'),
        progressValue = document.querySelector('.progress-value')
 
@@ -81,15 +76,13 @@ function startTimer(){
         //Checking when to end the timer
         if(progressStartValue <= progressEndValue){
           clearInterval(progress);
-          showQuizDetails();
+          showQuizDetailsContainer();
           saveUser();
           
           
         }
       },1000)
 }
-
-var id = 0;
 
 
 // An array of questions
@@ -163,14 +156,13 @@ function setQuestion(){
 }
 
 let numberOfQuestions = 0;
-const options = document.querySelector('.option-list');
-const totalQuestionsText = document.querySelector('.total-questions')
+const options = document.querySelector('.option-list'),
+      totalQuestionsText = document.querySelector('.total-questions')
+
 totalQuestionsText.innerHTML = `<span>Question<p>${numberOfQuestions + 1}</p>of<p>${questions.length}</p></span>`
 
-//To check if all questions have been answered
-if(numberOfQuestions === questions.length){
-  progressStartValue = 0;
-}
+
+
 //To clear out all the previous options
 function clearPreviousOptions(parent) {
   while (parent.firstChild) {
@@ -178,12 +170,10 @@ function clearPreviousOptions(parent) {
   }
 }
 
-
 let wrong = 0;
 let correct = 0;
 let i = numberOfQuestions;
 const scores = document.querySelector('.scores');
-
 options.addEventListener('click', function(e){
 
   if(numberOfQuestions < questions.length){
@@ -193,16 +183,23 @@ options.addEventListener('click', function(e){
     displayQuestion(numberOfQuestions);
     totalQuestionsText.innerHTML = `<span>Question<p>${numberOfQuestions + 1}</p>of<p>${questions.length}</p></span>`
   }
+
+  else if(numberOfQuestions === questions.length){
+    progressStartValue = 0;
+    showQuizDetailsContainer();
+  }
+
+
   else{
-  showQuizDetails();
+  showQuizDetailsContainer();
   saveUser();
   }
 
    
 })
 
-
-function showQuizDetails(){
+//To show the quiz details
+function showQuizDetailsContainer(){
 
   //To remove the questions from the page
   questionsContainer.classList.remove('active');
@@ -213,12 +210,24 @@ function showQuizDetails(){
   pointsContainer.classList.remove('inactive');
   pointsContainer.classList.add('active');
 
- 
+
+  //To set the points
+  setPoints();
+  
 }
 
+//To select point class
+const pointsInfo = document.querySelector('.point-info-list'),
+      totalPoints = document.querySelector('.point')
 
-
-
+//To set points
+function setPoints(){
+          totalPoints.textContent = `${correct * 50}pt`;
+          pointsInfo.innerHTML = `<li><p>${numberOfQuestions /questions.length * 100}&#x25;</p>completed</li>
+                                  <li><p>${questions.length}</p>Total questions</li>
+                                  <li class="correct"><p>${correct}</p>correct</li>
+                                  <li class="wrong"><p>${wrong}</p> wrong</li>`
+}
 
 
 // To display a question and it's options
@@ -254,16 +263,17 @@ function optionSelected(answer){
   let userAnswer = answer.textContent.trim();
   let correctAns = questions[i].options[questions[i].answer];
 
+  if(correct + wrong === questions.length - 1){
+    progressStartValue = 0;
+    showQuizDetailsContainer();
+  }
 
   if(userAnswer == correctAns){
-    console.log('The answer is correct');
     correct+= 1;
 
   }
   else{
-    console.log('the answer is wrong');
     wrong += 1
-
 
     //To subtract 10 secs from the timer
     progressStartValue -= 10
@@ -282,6 +292,7 @@ function saveUser(){
           username: username,
           correct: correct,
           wrong: wrong,
+          id: Date.now(),
       } 
   
 

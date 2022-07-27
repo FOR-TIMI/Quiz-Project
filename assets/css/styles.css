@@ -12,8 +12,8 @@ body{
 
 #quiz-form,#question-section,#points{
     position: absolute;
-    top: 15%;
-    left: 40%;
+    top: -3%;
+    left: 35%;
     transition: all 0.3s ease;
 }
 
@@ -158,7 +158,7 @@ button{
 
 /* Question section */
 #questions{
-    width: 500px;
+    width: 110%;
     height: 630px;
     margin: 60px auto;
     display: flex;
@@ -346,7 +346,7 @@ button{
 
 /* Points section */
 .points-container{
-    width: 500px;
+    width: 150%;
     height: 500px;
     margin: 60px auto;
     display: flex;
@@ -371,7 +371,7 @@ button{
     padding: 0;
     flex-wrap: wrap;
     border-radius: 10px;
-     width: 80%;
+     width: 100%;
     display: flex;
    justify-content: center;
    align-items: center;
@@ -515,13 +515,33 @@ color: #A862EA;
     width: 50%;
   }
 
+  #points{
+    width: 35%;
+  }
+
+
+  #quiz-form,#question-section,#points{
+    position: absolute;
+    left: 30%;
+  }
+
   }
 
   @media only screen and (max-width: 800px) {
     .container{
       width: 80%;
     }
- 
+    .points-container{
+        width: 230%;
+    }
+    .point-box{
+        width: 230%;
+    }
+
+    #quiz-form,#question-section,#points{
+        position: absolute;
+        left: 10%;
+      }
     }
 
     @media only screen and (max-width: 600px) {
@@ -529,6 +549,14 @@ color: #A862EA;
           width: 100%;
           height: 700px;
         }
+        .points-container{
+            width: 290%;
+        }
+
+        #quiz-form,#question-section,#points{
+            position: absolute;
+            left: 0%;
+          }
         #questions{
             width: 100%;
         }
