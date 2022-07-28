@@ -10,7 +10,7 @@ body{
     background-color: #E7DAFF;
 }
 
-#quiz-form,#question-section,#points{
+#quiz-form,#question-section,#points,#leaderboard{
     position: absolute;
     top: -3%;
     left: 35%;
@@ -345,7 +345,7 @@ button{
 
 
 /* Points section */
-.points-container{
+.points-container,.leaderboard-container{
     width: 150%;
     height: 500px;
     margin: 60px auto;
@@ -499,8 +499,144 @@ color: #A862EA;
 
 
 /* Leaderboard section */
+#leaderboard{
+    height: 100%;
+    color: #A862EA;
+}
+.leaderboard-container{
+    height: 650px;
+
+}
+.leaderboard-box-background{
+    background-color: #CEB5FF;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+}
+
+.top-three-ranking{
+    box-sizing: border-box;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -27.7%;
+}
+
+.top-three-ranking .number-one{
+    order: 1;
+    background-color: #fff;
+    height: 180px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    box-shadow: -10px 0px 13px -7px #A862EA, 10px 0px 13px -7px #A862EA, 5px 5px 15px 5px #A862EA;
+}
+
+.top-three-ranking .number-two{
+    order: 0;
+    background-color: #fff;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 29% 100%);
+    width: 30%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 
+}
+.top-three-ranking .number-three{
+    order: 2;
+    background-color: #fff;
+    width: 30%;
+    height: 65%;
+    clip-path: polygon(0 0, 100% 0, 72% 110%, 1% 100%);
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-number{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.leaderboard-crown{
+    margin-bottom: 10px;
+}
+
+.leaderboard-name{
+    font-weight: bold;
+}
+.leaderboard-point{
+    font-size: 13px;
+    font-weight: 500;
+}
+.other-players-list{
+    position: absolute;
+    display: flex;
+    justify-self: center;
+    margin-top: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+.other-players-list .player{
+   border-bottom: 3px solid #A862EA;
+   background-color: #CEB5FF;
+   width: 80%;
+   margin-bottom: 5px;
+   padding: 5px;
+   border-radius: 10px;
+   
+}
+
+.more-features{
+    position: relative;
+    top: 12%;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leaderboard-clear-all{
+    cursor: pointer;
+    transform: all 0.8s ease-out;
+}
+.leaderboard-start-quiz{
+  text-decoration: none;
+  color: #A862EA;
+}
+
+.player {
+   display: flex;
+   justify-content: space-evenly;
+
+}
+
+.leaderboard-start-quiz:hover{
+    border-bottom: 2px solid #6545A4;
+}
+.leaderboard-clear-all:hover{
+    border-bottom: 2px solid #6545A4;
+}
+.other-player-name{
+    width: 60%;
+    text-align: center;
+}
 
 
 
@@ -515,12 +651,12 @@ color: #A862EA;
     width: 50%;
   }
 
-  #points{
+  #points,#leaderboard{
     width: 35%;
   }
 
 
-  #quiz-form,#question-section,#points{
+  #quiz-form,#question-section,#points,#leaderboard{
     position: absolute;
     left: 30%;
   }
@@ -531,14 +667,16 @@ color: #A862EA;
     .container{
       width: 80%;
     }
-    .points-container{
+    .points-container,.leaderboard-container{
         width: 230%;
     }
-    .point-box{
+    .point-box,.leaderboard-box{
         width: 230%;
     }
-
-    #quiz-form,#question-section,#points{
+    .other-players-list{
+        width: 200%;
+    }
+    #quiz-form,#question-section,#points,#leaderboard{
         position: absolute;
         left: 10%;
       }
@@ -549,11 +687,11 @@ color: #A862EA;
           width: 100%;
           height: 700px;
         }
-        .points-container{
+        .points-container,.leaderboard-container{
             width: 290%;
         }
 
-        #quiz-form,#question-section,#points{
+        #quiz-form,#question-section,#points,#leaderboard{
             position: absolute;
             left: 0%;
           }
