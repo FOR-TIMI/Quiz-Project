@@ -44,7 +44,7 @@ const validateInput = function(){
     }
 }
 
-
+//To instatiate the createiopn of the quiz
 function createQuiz(){
     setQuestion();
     startTimer();
@@ -145,17 +145,41 @@ let questions = [
 
 ];
 
+//To set random question Number
+const randomQuestionNumbers = function(){
+  const arr = []
+  let random;
+  let counter = 0;
+ const randomNumber = function(){ 
+     return  Math.floor(Math.random() * questions.length)
+ };
+  
+  while(counter < questions.length){
+      random = randomNumber();
+      if(!arr.includes(random)){
+          arr.push(random);
+          counter++
+          }
+}
+      return arr
+}
+const questionSet = randomQuestionNumbers();
+
+let numberOfQuestions = 0;
+let i = questionSet[numberOfQuestions];
+
+
 function setQuestion(){
   startQuizContainer.classList.remove('active');
   startQuizContainer.classList.add('inactive');
 
 
   questionsContainer.classList.add('active');
-  displayQuestion(numberOfQuestions);
+  displayQuestion(i);
 
 }
 
-let numberOfQuestions = 0;
+
 const options = document.querySelector('.option-list'),
       totalQuestionsText = document.querySelector('.total-questions')
 
@@ -170,17 +194,19 @@ function clearPreviousOptions(parent) {
   }
 }
 
+
+
 let wrong = 0;
 let correct = 0;
-let i = numberOfQuestions;
+
 const scores = document.querySelector('.scores');
 options.addEventListener('click', function(e){
-
+ 
   if(numberOfQuestions < questions.length){
     clearPreviousOptions(options);
     numberOfQuestions+= 1;
-    i= numberOfQuestions;
-    displayQuestion(numberOfQuestions);
+    i = questionSet[numberOfQuestions]
+    displayQuestion(i);
     totalQuestionsText.innerHTML = `<span>Question<p>${numberOfQuestions + 1}</p>of<p>${questions.length}</p></span>`
   }
 
@@ -228,6 +254,7 @@ function setPoints(){
                                   <li class="correct"><p>${correct}</p>correct</li>
                                   <li class="wrong"><p>${wrong}</p> wrong</li>`
 }
+
 
 
 // To display a question and it's options
