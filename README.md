@@ -1,5 +1,5 @@
 # Quiz-Project
-
+With this web application, users can take a quiz, check the leaderboard to see the current highscores and much more.
 
 
 ## Purpose
