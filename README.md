@@ -21,12 +21,12 @@ This website serves as a platform for users to do their quiz.It's features are a
 * JavaScript
 
 ## Screenshot
-![image](https://user-images.githubusercontent.com/104241247/181443959-3b7b0ce0-dbcd-45ff-a97b-9a2f68233197.png)
-![image](https://user-images.githubusercontent.com/104241247/181444184-990f3c63-6a8f-40e9-87b7-47715b624a0e.png)
-![image](https://user-images.githubusercontent.com/104241247/181444301-c5fbcfce-bfb6-4d1e-889b-fbe5fbebeaf6.png)
-![image](https://user-images.githubusercontent.com/104241247/181444365-f433fa6d-7715-4a7a-a60a-c98509c647ec.png)
-![image](https://user-images.githubusercontent.com/104241247/181444482-8af338d4-1bff-4200-97d6-14cc28bc2348.png)
-![image](https://user-images.githubusercontent.com/104241247/181455267-2332e54c-d3a4-4b1a-9e37-a4c8f07464c1.png)
+- ![image](https://user-images.githubusercontent.com/104241247/181443959-3b7b0ce0-dbcd-45ff-a97b-9a2f68233197.png)
+- ![image](https://user-images.githubusercontent.com/104241247/181444184-990f3c63-6a8f-40e9-87b7-47715b624a0e.png)
+- ![image](https://user-images.githubusercontent.com/104241247/181444301-c5fbcfce-bfb6-4d1e-889b-fbe5fbebeaf6.png)
+- ![image](https://user-images.githubusercontent.com/104241247/181444365-f433fa6d-7715-4a7a-a60a-c98509c647ec.png)
+- ![image](https://user-images.githubusercontent.com/104241247/181444482-8af338d4-1bff-4200-97d6-14cc28bc2348.png)
+- ![image](https://user-images.githubusercontent.com/104241247/181455267-2332e54c-d3a4-4b1a-9e37-a4c8f07464c1.png)
 
 
 
