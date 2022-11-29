@@ -1,5 +1,13 @@
-# Quiz-Project
+<h1 align="center">Quizme</h1>
+
+## Description
 With this web application, users can take a quiz, check the leaderboard to see the current highscores and much more.
+
+
+## Support the project ⭐
+If you feel awesome and want to support us in a small way, please consider following me, starring and sharing the repo! This helps us getting known and grow the community. 🙏
+ 
+ ![image](https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/github-vuesax-star.gif)
 
 
 ## Purpose
