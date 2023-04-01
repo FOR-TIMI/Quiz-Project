@@ -1,7 +1,8 @@
 <h1 align="center">Quizme</h1>
 
 ## Description
-With this web application, users can take a quiz, check the leaderboard to see the current highscores and much more.
+With this web application, users can take a quiz, check the leaderboard to see the current highscores.
+quiz leaderboard results get stored in the local storage of the user
 
 
 ## Support the project ⭐
