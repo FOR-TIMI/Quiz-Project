@@ -5,12 +5,6 @@ With this web application, users can take a quiz, check the leaderboard to see t
 quiz leaderboard results get stored in the local storage of the user
 
 
-## Support the project ⭐
-If you feel awesome and want to support us in a small way, please consider following me, starring and sharing the repo!
- 
- ![image](https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/github-vuesax-star.gif)
-
-
 ## Purpose
 This website serves as a platform for users to do their quiz.It's features are as follows
 
