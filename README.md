@@ -1,4 +1,4 @@
-<h1 align="center">Quizme</h1>
+<h1 align="center">Quiz</h1>
 
 ## Description
 With this web application, users can take a quiz, check the leaderboard to see the current highscores.
